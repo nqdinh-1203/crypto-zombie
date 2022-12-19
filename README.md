@@ -110,3 +110,5 @@ Remember, with approve the transfer happens in 2 steps:
 2. The new owner calls transferFrom with the _tokenId. Next, the contract checks to make sure the new owner has been already approved, and then transfers them the token.
 
 Because this happens in 2 function calls, we need to use the zombieApprovals data structure to store who's been approved for what in between function calls.
+
+### Chapter 8: ERC721: Approve

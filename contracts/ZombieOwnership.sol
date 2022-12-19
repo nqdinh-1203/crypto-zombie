@@ -34,12 +34,14 @@ contract ZombieOwnership is ZombieAttack, IERC721 {
     ) external payable {
         require(zombieToOwner[_tokenId] == msg.sender || zombieApprovals[_tokenId] == msg.sender, "From address does not own or approve this zombie");
         _transfer(_from, _to, _tokenId);
-        }
+    }
 
     function approve(
         address _approved,
         uint256 _tokenId
     ) external payable onlyOwnerOf(_tokenId) {
         zombieApprovals[_tokenId] = _approved;
+
+        emit Approval(msg.sender, _approved, _tokenId);
     }
 }
