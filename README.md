@@ -45,3 +45,8 @@ Can you think of how we would add a check to see if the person calling this func
 
 ### Chapter 7: More Refactoring
 We have a couple more places in `zombiehelper.sol` where we need to implement our new `modifier ownerOf`.
+
+### Chapter 8: Back to Attack!
+Enough refactoring — back to `zombieattack.sol`.
+
+We're going to continue defining our `attack` function, now that we have the `ownerOf` modifier to use.
