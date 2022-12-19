@@ -1,4 +1,4 @@
-// SPDX-License-Identifier:
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
 import "./ZombieHelper.sol";
@@ -23,8 +23,9 @@ contract ZombieAttack is ZombieHelper {
             myZombie.winCount++;
             myZombie.level++;
             enemyZombie.lossCount++;
-            feedAndMultiply(_zombieId, enemyZombie.dna, "zombie")
-        } else {
+            feedAndMultiply(_zombieId, enemyZombie.dna, "zombie");
+        } 
+        else {
             myZombie.lossCount++;
             enemyZombie.winCount++;
             _triggerCooldown(myZombie);
