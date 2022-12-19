@@ -50,3 +50,10 @@ We have a couple more places in `zombiehelper.sol` where we need to implement ou
 Enough refactoring — back to `zombieattack.sol`.
 
 We're going to continue defining our `attack` function, now that we have the `ownerOf` modifier to use.
+
+### Chapter 9: Zombie Wins and Losses
+For our zombie game, we're going to want to keep track of how many battles our zombies have won and lost. That way we can maintain a "zombie leaderboard" in our game state.
+
+We could store this data in a number of ways in our DApp — as individual mappings, as leaderboard Struct, or in the `Zombie` struct itself.
+
+Each has its own benefits and tradeoffs depending on how we intend on interacting with the data. In this tutorial, we're going to store the stats on our `Zombie` struct for simplicity, and call them `winCount` and `lossCount`.
