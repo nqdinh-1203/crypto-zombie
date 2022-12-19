@@ -67,3 +67,6 @@ In chapter 6 we calculated a random number from 0 to 100. Now let's use that num
 Now that we've coded what happens when your zombie wins, let's figure out what happens when it <b>loses</b>.
 
 In our game, when zombies lose, they don't level down — they simply add a loss to their `lossCount`, and their cooldown is triggered so they have to wait a day before attacking again.
+
+## Lesson 5: ERC721 & Crypto-Collectibles
+### Chapter 1: Tokens on Ethereum
