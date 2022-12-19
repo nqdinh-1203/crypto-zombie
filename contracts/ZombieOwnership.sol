@@ -5,6 +5,8 @@ import "./ZombieAttack.sol";
 import "./IERC721.sol";
 
 contract ZombieOwnership is ZombieAttack, IERC721 {
+    mapping (uint => address) zombieApprovals;
+
     function balanceOf(
         address _owner
     ) external view returns (uint256) {
@@ -29,7 +31,10 @@ contract ZombieOwnership is ZombieAttack, IERC721 {
         address _from,
         address _to,
         uint256 _tokenId
-    ) external payable override {}
+    ) external payable {
+        require(zombieToOwner[_tokenId] == msg.sender || zombieApprovals[_tokenId] == msg.sender, "From address does not own or approve this zombie");
+        _transfer(_from, _to, _tokenId)
+    }
 
     function approve(
         address _approved,

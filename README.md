@@ -94,3 +94,8 @@ The second way is the token's owner first calls `approve` with the address he wa
 Notice that both methods contain the same transfer logic. In one case the sender of the token calls the `transferFrom` function; in the other the owner or the approved receiver of the token calls it.
 
 So it makes sense for us to abstract this logic into its own private function, `_transfer`, which is then called by `transferFrom`.
+
+### Chapter 6: ERC721: Transfer Cont'd
+1. First, we want to make sure only the owner or the approved address of a token/zombie can transfer it. Let's define a mapping called zombieApprovals. It should map a uint to an address. This way, when someone that is not the owner calls transferFrom with a _tokenId, we can use this mapping to quickly look up if he is approved to take that token.
+2. Next, let's add a require statement to transferFrom. It should make sure that only the owner or the approved address of a token/zombie can transfer it.
+3. Lastly, don't forget to call _transfer.
