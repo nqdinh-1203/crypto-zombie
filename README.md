@@ -29,3 +29,11 @@ randNonce++;
 uint random2 = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;
 ```
 
+### Chapter 5: Zombie Fightin'
+Our zombie battles will work as follows:
+- You choose one of your zombies, and choose an opponent's zombie to attack.
+- If you're the attacking zombie, you will have a 70% chance of winning. The defending zombie will have a 30% chance of winning.
+- All zombies (attacking and defending) will have a winCount and a lossCount that will increment depending on the outcome of the battle.
+- If the attacking zombie wins, it levels up and spawns a new zombie.
+- If it loses, nothing happens (except its lossCount incrementing).
+- Whether it wins or loses, the attacking zombie's cooldown time will be triggered.
