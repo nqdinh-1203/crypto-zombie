@@ -19,4 +19,13 @@ npx hardhat run scripts/deploy.ts
 ### Chapter 3: Zombie Battles
 Declare a new contract called `ZombieAttack` that inherits from `ZombieHelper`
 ### Chapter 4: Random Number
+<b>Random number</b> generation via `keccak256`  
+We could do something like the following to generate a random number:
+
+```c
+uint randNonce = 0;
+uint random = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;
+randNonce++;
+uint random2 = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;
+```
 
