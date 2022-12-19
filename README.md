@@ -42,3 +42,6 @@ Our zombie battles will work as follows:
 Whoever calls our `attack` function — we want to make sure the user actually owns the zombie they're attacking with. It would be a security concern if you could attack with someone else's zombie!
 
 Can you think of how we would add a check to see if the person calling this function is the owner of the `_zombieId` they're passing in?
+
+### Chapter 7: More Refactoring
+We have a couple more places in `zombiehelper.sol` where we need to implement our new `modifier ownerOf`.
