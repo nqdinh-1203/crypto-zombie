@@ -11,3 +11,12 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.ts
 ```
+
+## Lesson 4: Zombie Battle System
+
+### Chapter 1: Payable
+### Chapter 2: Withdraws
+### Chapter 3: Zombie Battles
+Declare a new contract called `ZombieAttack` that inherits from `ZombieHelper`
+### Chapter 4: Random Number
+
