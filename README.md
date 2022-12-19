@@ -37,3 +37,8 @@ Our zombie battles will work as follows:
 - If the attacking zombie wins, it levels up and spawns a new zombie.
 - If it loses, nothing happens (except its lossCount incrementing).
 - Whether it wins or loses, the attacking zombie's cooldown time will be triggered.
+
+### Chapter 6: Refactoring Common Logic
+Whoever calls our `attack` function — we want to make sure the user actually owns the zombie they're attacking with. It would be a security concern if you could attack with someone else's zombie!
+
+Can you think of how we would add a check to see if the person calling this function is the owner of the `_zombieId` they're passing in?
