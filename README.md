@@ -99,3 +99,14 @@ So it makes sense for us to abstract this logic into its own private function, `
 1. First, we want to make sure only the owner or the approved address of a token/zombie can transfer it. Let's define a mapping called zombieApprovals. It should map a uint to an address. This way, when someone that is not the owner calls transferFrom with a _tokenId, we can use this mapping to quickly look up if he is approved to take that token.
 2. Next, let's add a require statement to transferFrom. It should make sure that only the owner or the approved address of a token/zombie can transfer it.
 3. Lastly, don't forget to call _transfer.
+
+### Chapter 7: ERC721: Approve
+Now, let's implement approve.
+
+Remember, with approve the transfer happens in 2 steps:
+
+1. You, the owner, call approve and give it the _approved address of the new owner, and the _tokenId you want them to take.
+
+2. The new owner calls transferFrom with the _tokenId. Next, the contract checks to make sure the new owner has been already approved, and then transfers them the token.
+
+Because this happens in 2 function calls, we need to use the zombieApprovals data structure to store who's been approved for what in between function calls.
