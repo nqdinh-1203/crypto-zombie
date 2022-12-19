@@ -71,3 +71,5 @@ In our game, when zombies lose, they don't level down — they simply add a loss
 ## Lesson 5: ERC721 & Crypto-Collectibles
 ### Chapter 1: Tokens on Ethereum
 ### Chapter 2: ERC721 Standard, Multiple Inheritance
+### Chapter 3: balanceOf & ownerOf
+### Chapter 4: Refactoring

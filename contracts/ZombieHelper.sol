@@ -28,11 +28,11 @@ contract ZombieHelper is ZombieFeeding {
         levelUpFee = _fee;
     }
 
-    function changeName(uint _zombieId, string calldata _newName) external aboveLevel(2, _zombieId) ownerOf(_zombieId) {
+    function changeName(uint _zombieId, string calldata _newName) external aboveLevel(2, _zombieId) onlyOwnerOf(_zombieId) {
         zombies[_zombieId].name = _newName;
     }
 
-    function changeDNA(uint _zombieId, uint _newDNA) external aboveLevel(20, _zombieId) ownerOf(_zombieId) {
+    function changeDNA(uint _zombieId, uint _newDNA) external aboveLevel(20, _zombieId) onlyOwnerOf(_zombieId) {
         zombies[_zombieId].dna = _newDNA;
     }
 
