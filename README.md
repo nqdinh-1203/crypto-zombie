@@ -132,3 +132,78 @@ uint256 b = a.add(3); // 5 + 3 = 8
 uint256 c = a.mul(2); // 5 * 2 = 10
 ```
 We'll look at what these functions do in the next chapter, but for now let's add the SafeMath library to our contract.
+
+## Lesson 6: App Front-ends & Web3.
+
+### Chapter 1: Intro to Web3.js
+Remember, the Ethereum network is made up of nodes, with each containing a copy of the blockchain. When you want to call a function on a smart contract, you need to query one of these nodes and tell it:
+
+The address of the smart contract
+The function you want to call, and
+The variables you want to pass to that function.
+Ethereum nodes only speak a language called JSON-RPC, which isn't very human-readable. A query to tell the node you want to call a function on a contract looks something like this:
+
+```json
+// Yeah... Good luck writing all your function calls this way!
+// Scroll right ==>
+{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xb60e8dd61c5d32be8058bb8eb970870f07233155","to":"0xd46e8dd67c5d32be8058bb8eb970870f07244567","gas":"0x76c0","gasPrice":"0x9184e72a000","value":"0x9184e72a","data":"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"}],"id":1}
+```
+
+Luckily, Web3.js hides these nasty queries below the surface, so you only need to interact with a convenient and easily readable JavaScript interface.
+
+Instead of needing to construct the above query, calling a function in your code will look something like this:
+
+```js
+CryptoZombies.methods.createRandomZombie("Vitalik Nakamoto 🤔")
+  .send({ from: "0xb60e8dd61c5d32be8058bb8eb970870f07233155", gas: "3000000" })
+```
+We'll explain the syntax in detail over the next few chapters, but first let's get your project set up with Web3.js.
+
+Getting started
+Depending on your project's workflow, you can add Web3.js to your project using most package tools:
+
+```bash
+// Using NPM
+npm install web3
+
+// Using Yarn
+yarn add web3
+
+// Using Bower
+bower install web3
+
+// ...etc.
+```
+
+Or you can simply download the minified .js file from github and include it in your project:
+```js
+<script language="javascript" type="text/javascript" src="web3.min.js"></script>
+```
+
+Since we don't want to make too many assumptions about your development environment and what package manager you use, for this tutorial we're going to simply include Web3 in our project using a script tag as above.
+### Chapter 2: Web3 Providers
+Using Metamask's web3 provider
+Metamask injects their web3 provider into the browser in the global JavaScript object web3. So your app can check to see if web3 exists, and if it does use `web3.currentProvider` as its provider.
+
+Here's some template code provided by Metamask for how we can detect to see if the user has Metamask installed, and if not tell them they'll need to install it to use our app:
+```js
+window.addEventListener('load', function() {
+
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Use Mist/MetaMask's provider
+    web3js = new Web3(web3.currentProvider);
+  } else {
+    // Handle the case where the user doesn't have web3. Probably
+    // show them a message telling them to install Metamask in
+    // order to use our app.
+  }
+
+  // Now you can start your app & access web3js freely:
+  startApp()
+
+})
+```
+You can use this boilerplate code in all the apps you create in order to require users to have Metamask to use your DApp.
+
+### Chapter 3: Talking to Contracts
